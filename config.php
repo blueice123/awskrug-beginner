@@ -12,12 +12,12 @@ $db_password = "password";
 // Image upload options
 $storage_option = "hd";
 $hd_folder  = "uploads";
-$s3_region  = "ap-southeast-2";
+$s3_region  = "ap-northeast-2";
 $s3_bucket  = "my-upload-bucket";
-$s3_baseurl = "https://s3-ap-southeast-2.amazonaws.com/";
+$s3_baseurl = "https://s3-ap-northeast-2.amazonaws.com/";
 if ($storage_option == "s3")
 {
-	$s3_client = S3Client::factory(array('region' => $s3_region));
+	$s3_client = S3Client::factory(array('region' => $s3_region, 'signature' => 'v4'));
 }
 
 // Simulate latency, in seconds
